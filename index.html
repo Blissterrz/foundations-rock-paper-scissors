@@ -4,23 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>rock-paper-scissors</title>
 </head>
 <body>
-    <script src="./script.js" defer>
-    </script>
+    <h1 class='title'>ROCK PAPER SCISSORS</h1>
     <div class="feed"> Pick an option to start the game </div>
     <div class="container">
         <button class="btn rock">Rock</button>
         <button class="btn paper">Paper</button>
         <button class="btn scissors">Scissors</button>
     </div>
-    <div class ='scorecard'>
-        <div class="player">Player</div>
-        <div class="player score">0</div>
-        <div class="computer">Computer</div>
-        <div class="computer score">0</div>
+    <div id='scorecardContainer'>
+        <div class="player scorecard">
+            <div class="player">Player</div>
+            <div class="player score">0</div>
+        </div>
+        <div class="computer scorecard">
+            <div class="computer">Computer</div>
+            <div class="computer score">0</div>
+        </div>
     </div>
     <button class="reset">Reset</button>
+    <script src="./script.js" defer></script>
     </body>
 </html>

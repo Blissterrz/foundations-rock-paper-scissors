@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family:  quicksand, roboto, sans-serif ;
+    background-color: #eee2dc;
+}
+
+h1 {
+    text-align: center;
+    color: #ac3b61;
+    font-size: 48px;
+}
+
+h1 {
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  h1:before,
+  h1:after {
+    background-color: #ac3b61;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+  }
+  
+  h1:before {
+    right: 0.5em;
+    margin-left: -50%;
+  }
+  
+  h1:after {
+    left: 0.5em;
+    margin-right: -50%;
+  }
+
+.feed {
+    text-align: center;
+    color: #123c69;
+    font-size: 28px;
+    font-weight: 920;
+}
+
+.btn {
+    padding: 2em 1em;
+    font-size: 32px;
+    background-color: #bab2b5;
+    color: white;
+    border-radius: 1em;
+    border: 0px;
+    width: 7em;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: rgb(76, 184, 235);
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2em ;
+    gap: 4em;
+    flex: 1;
+}
+
+#scorecardContainer {
+    display: flex;
+    gap : 4em;
+    justify-content: center;
+    align-items: center;
+}
+
+.scorecard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #123c69;
+    gap: 0.5em;
+    margin: 2em;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.reset {
+    display: block;
+    padding: 8px;
+    margin: auto ;
+    background-color: #bab2b5;
+    color: white;
+    border: 0px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.reset:hover {
+    background-color: rgb(76, 184, 235);
+    cursor: pointer;
+}
