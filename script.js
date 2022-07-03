@@ -1,9 +1,11 @@
+//UI
 const rock = document.querySelector('.rock');
 const paper = document.querySelector('.paper');
 const scissors = document.querySelector('.scissors');
 const feed = document.querySelector('.feed');
 const playerScoreFeed = document.querySelector('.score.player');
 const computerScoreFeed = document.querySelector('.score.computer');
+const resetBtn = document.querySelector('.reset');
     
 //Function to random select an option for the computer
     function computerPlay(){
@@ -35,12 +37,13 @@ function playRound(playerPick){
     }
 }
 
+//Initialization for game function
 let result = ''
 let playerScore = 0;
 let computerScore = 0;
 
+//Function to figure out winner and calculate score
 function game (result) {
-
     if(playerScore >= 5) {
         feed.textContent = 'You have won, click reset to play again.'
     } else if (computerScore >=  5) {
@@ -60,6 +63,7 @@ function game (result) {
     }
 }
 
+//Clicks to play the game
 rock.addEventListener('click', (e) => {
     let result = playRound('rock');
     game(result);
@@ -71,4 +75,13 @@ paper.addEventListener('click', (e) => {
 scissors.addEventListener('click', (e) => {
     let result = playRound('scissors');
     game(result);
+});
+
+//Reset button
+resetBtn.addEventListener('click', (e) => {
+    playerScore= 0;
+    computerScore =0;
+    feed.textContent = 'Pick an option to start the game';
+    playerScoreFeed.textContent = playerScore;
+    computerScoreFeed.textContent = computerScore;
 });
