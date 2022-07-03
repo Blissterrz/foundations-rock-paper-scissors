@@ -1,72 +1,74 @@
-//Function to random select an option for the computer
-function computerPlay(){
-    let ranNum = Math.floor(Math.random() * 3);
-    console.log(ranNum);
-    if (ranNum === 0) {
-        return 'rock'
-    } else if (ranNum === 1) {
-        return 'paper'
-    } else  return 'scissors'   
-}
-
-
-//Fucntion to allow the user to select their option.
-function userPlay(){
-    let userSelect = prompt("Enter rock, paper or scissors.");
-    if (userSelect.toLowerCase() === 'rock') {
-        return 'rock'
-    } else if (userSelect.toLowerCase() === 'paper') {
-        return 'paper'
-    } else if (userSelect.toLowerCase() === 'scissors') {
-        return 'scissors'
-    } else {
-        alert('Do you not know how to play rock paper scissors or something? Try again.');
-        return userPlay();
-    }
+const rock = document.querySelector('.rock');
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
+const feed = document.querySelector('.feed');
+const playerScoreFeed = document.querySelector('.score.player');
+const computerScoreFeed = document.querySelector('.score.computer');
     
-}
+//Function to random select an option for the computer
+    function computerPlay(){
+        let ranNum = Math.floor(Math.random() * 3);
+        if (ranNum === 0) {
+            return 'rock'
+        } else if (ranNum === 1) {
+            return 'paper'
+        } else  return 'scissors'   
+    }
 
-//Funtion to play a single round
-function playRound(){
+//Function to play a single round
+function playRound(playerPick){
     let computerPick = computerPlay();
-    let userPick = userPlay();
-    if (userPick === computerPick) {
+    if (playerPick === computerPick) {
         return "it's a tie!"
-    } else if (userPick === 'rock' && computerPick === 'paper') {
+    } else if (playerPick === 'rock' && computerPick === 'paper') {
         return 'You lose! paper beats rock.'
-    } else if (userPick === 'rock' && computerPick === 'scissors') {
+    } else if (playerPick === 'rock' && computerPick === 'scissors') {
         return 'You win! rock beats scissors.'
-    } else if (userPick === 'paper' && computerPick === 'rock') {
+    } else if (playerPick === 'paper' && computerPick === 'rock') {
         return 'You win! paper beats rock.'
-    } else if (userPick === 'paper' && computerPick === 'scissors') {
+    } else if (playerPick === 'paper' && computerPick === 'scissors') {
         return 'You lose! scissors beats paper.'
-    } else if (userPick === 'scissors' && computerPick === 'paper') {
+    } else if (playerPick === 'scissors' && computerPick === 'paper') {
         return 'You Win! scissors beats paper.'
-    }  else if (userPick === 'scissors' && computerPick === 'rock') {
+    }  else if (playerPick === 'scissors' && computerPick === 'rock') {
         return 'You lose! rock beats scissors.'
     }
 }
 
-//Function to initiate the game and keep track of the scores
-function game(){
-    let userPoints = 0;
-    let computerPoints = 0;
-    let ties = 0;
-    for (let i = 0; i < 5; i++) {
-        let result = playRound();
-        if (result.slice(0,5) === 'You w')  {
-            userPoints += 1
-        } else if (result.slice(0,5) === 'You l') {
-            computerPoints += 1;
-        } else {
-            ties += 1
-        }
-        console.log(result);
-     }
-     console.log('User: ' + userPoints +  ' ' + 'Computer: ' + computerPoints);
-     if (userPoints>computerPoints) {
-        console.log("You have won!")
-     } else if (computerPoints>userPoints) {
-        console.log("You have lost.")
-     } else console.log('It was a tie!')
+let result = ''
+let playerScore = 0;
+let computerScore = 0;
+
+function game (result) {
+
+    if(playerScore >= 5) {
+        feed.textContent = 'You have won, click reset to play again.'
+    } else if (computerScore >=  5) {
+        feed.textContent = 'You have lost, click reset to play again.'
+    } else {
+    if(result.slice(0,5) == 'You w') {
+        playerScore += 1;
+        feed.textContent = result;
+    } else if (result.slice(0,5) == 'You l') {
+        computerScore += 1;
+        feed.textContent = result;
+    } else {
+        feed.textContent = result;
+    };
+    playerScoreFeed.textContent = playerScore;
+    computerScoreFeed.textContent = computerScore;
+    }
 }
+
+rock.addEventListener('click', (e) => {
+    let result = playRound('rock');
+    game(result);
+});
+paper.addEventListener('click', (e) => {
+    let result = playRound('paper');
+    game(result);
+});
+scissors.addEventListener('click', (e) => {
+    let result = playRound('scissors');
+    game(result);
+});
