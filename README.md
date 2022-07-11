@@ -1,2 +1,2 @@
-# theodinproject-rock-paper-scissors-project
-The rock-paper-scissors project of the JavaScript section in the foundations course of the Odin project.
+# Rock,Paper,Scissors (Foundations)
+The rock,paper,scissors project in the Javascript foundations section of the foundations course in The Odin Project.
